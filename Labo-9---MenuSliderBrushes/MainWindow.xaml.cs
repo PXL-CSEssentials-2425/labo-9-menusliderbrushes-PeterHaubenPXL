@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace TestWindow
 {
@@ -102,6 +103,15 @@ namespace TestWindow
                 }
             }
         }
+
+        // Gevonden op volgende URL
+        // https://stackoverflow.com/questions/59558368/how-to-select-all-text-of-a-textbox-on-mouse-click-textbox-selectall-not-wor
+        private async void selectAll_OnTextBoxGotFocus(object sender, RoutedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            await Application.Current.Dispatcher.InvokeAsync(textBox.SelectAll, DispatcherPriority.Background);
+        }
+
 
     }
 

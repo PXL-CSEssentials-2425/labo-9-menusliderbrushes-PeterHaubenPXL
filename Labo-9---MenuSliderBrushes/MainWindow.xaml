@@ -8,17 +8,18 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Menu Grid.ColumnSpan="4">
+
+        <Menu Grid.ColumnSpan="3">
             <MenuItem Header="Bestand">
                 <MenuItem Click="closeMenuItem_Click"  Name="closeMenuItem" Header="Afsluiten"></MenuItem>
             </MenuItem>
@@ -27,13 +28,27 @@
                 <MenuItem Click="number2MenuItem_Click"  Name="number2MenuItem" Header="Getal 2"></MenuItem>
             </MenuItem>
         </Menu>
-        <Label Content="Getal 1:" Grid.Row="1" Margin="3"></Label>
-        <Label Content="Getal 2:" Grid.Row="2" Margin="3"></Label>
         
-        <TextBox Name="number1TextBox" Grid.Row="1" Grid.Column="1"  Margin="3" TextChanged="number1TextBox_TextChanged"></TextBox>
-        <TextBox Name="number2TextBox" Grid.Row="2" Grid.Column="1"  Margin="3" TextChanged="number2TextBox_TextChanged"></TextBox>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Label Content="Getal 1:" Grid.Row="1" Margin="5"></Label>
+            <Label Content="Getal 2:" Grid.Row="2" Margin="5"></Label>
 
-        <Slider ValueChanged="slider1_ValueChanged"  Name="slider1" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="3" Minimum="1" Maximum="5"></Slider>
-        <Slider ValueChanged="slider2_ValueChanged"  Name="slider2" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Margin="3" Minimum="1" Maximum="5"></Slider>
+            <TextBox  GotFocus="selectAll_OnTextBoxGotFocus" Name="number1TextBox" Grid.Row="1" Grid.Column="1"  Margin="5" TextChanged="number1TextBox_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="40" ></TextBox>
+            <TextBox  GotFocus="selectAll_OnTextBoxGotFocus" Name="number2TextBox" Grid.Row="2" Grid.Column="1"  Margin="5" TextChanged="number2TextBox_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+
+            <Slider ValueChanged="slider1_ValueChanged"  Name="slider1" Width="150" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="3" Minimum="1" Maximum="5"></Slider>
+            <Slider ValueChanged="slider2_ValueChanged"  Name="slider2" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Margin="3" Minimum="1" Maximum="5"></Slider>
+        </Grid>
     </Grid>
 </Window>
